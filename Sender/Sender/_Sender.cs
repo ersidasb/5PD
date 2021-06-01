@@ -22,13 +22,13 @@ namespace Sender
             byte[] messageLengthBytes = BitConverter.GetBytes(messageBytes.Length);
 
             byte[] keyAndSignatureBytes = keyAndSignature.SelectMany(BitConverter.GetBytes).ToArray();
-            byte[] fullBuffer = new byte[4 + messageBytes.Length + keyAndSignatureBytes.Length];
+            byte[] fullBuffer = new byte[8 + messageBytes.Length + keyAndSignatureBytes.Length];
+            byte[] fullBufferLengthBytes = BitConverter.GetBytes(fullBuffer.Length);
 
-
-            messageLengthBytes.CopyTo(fullBuffer, 0);
-            messageBytes.CopyTo(fullBuffer, 4);
-            keyAndSignatureBytes.CopyTo(fullBuffer, 4 + messageBytes.Length);
-            byte[] fullBufferLength = BitConverter.GetBytes(fullBuffer.Length);
+            fullBufferLengthBytes.CopyTo(fullBuffer, 0);
+            messageLengthBytes.CopyTo(fullBuffer, 4);
+            messageBytes.CopyTo(fullBuffer, 8);
+            keyAndSignatureBytes.CopyTo(fullBuffer, 8 + messageBytes.Length);
 
             try
             {
@@ -39,14 +39,7 @@ namespace Sender
                 MessageBox.Show("Server is offline. Please try again later.");
                 throw new Exception();
             }
-
-            Stream stm = new NetworkStream(socket); //gauna client socketo stream
-
-            UTF8Encoding asen = new UTF8Encoding();
-
-            stm.Write(fullBufferLength, 0, fullBufferLength.Length); //nusiuncia clientui kokio dydzio message bus
-            stm.Flush();
-            stm.Write(fullBuffer, 0, fullBuffer.Length); //nusiuncia clientui pati message
+            socket.Send(fullBuffer);
 
             socket.Close();
             MessageBox.Show("Your message was sent successfully.");

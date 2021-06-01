@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Server" Height="259.6" Width="613.6">
     <Grid>
-        <Button x:Name="btnStart" Content="Start Server" HorizontalAlignment="Left" Margin="226,195,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="306,195,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnStart" Content="Start Server" HorizontalAlignment="Left" Margin="226,195,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
+        <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="306,195,0,0" VerticalAlignment="Top" Width="75" Click="btnSend_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Public key: " VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock x:Name="tblPublicKey" HorizontalAlignment="Left" TextAlignment="Left" Margin="79,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" FontWeight="Bold"/>

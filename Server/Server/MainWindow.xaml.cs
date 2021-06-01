@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +21,24 @@ namespace Server
     /// </summary>
     public partial class MainWindow : Window
     {
+        _Server server = new _Server();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            Thread serverThread = new Thread(() =>
+            {
+                server.Start();
+            });
+            serverThread.Start();
+        }
+
+        private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
