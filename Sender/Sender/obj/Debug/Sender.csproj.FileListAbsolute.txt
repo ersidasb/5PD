@@ -13,3 +13,10 @@ C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.csproj.GenerateResource.ca
 C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.csproj.CoreCompileInputs.cache
 C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.exe
 C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.pdb
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.csprojAssemblyReference.cache
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\MainWindow.g.cs
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\App.g.cs
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender_MarkupCompile.cache
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender_MarkupCompile.lref
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.exe
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.pdb

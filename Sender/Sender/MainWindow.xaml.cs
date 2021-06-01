@@ -27,6 +27,11 @@ namespace Sender
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
+            RSASignature signature = new RSASignature();
+            foreach(int i in signature.getMessageSignature(tbxMessage.Text))
+            {
+                Console.Write(i.ToString() + ", ");
+            }
             tbxMessage.Text = "";
         }
     }
