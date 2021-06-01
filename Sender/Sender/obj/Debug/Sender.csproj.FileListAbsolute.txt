@@ -1,0 +1,15 @@
+C:\Users\ersid\Desktop\Sender\Sender\bin\Debug\Sender.exe.config
+C:\Users\ersid\Desktop\Sender\Sender\bin\Debug\Sender.exe
+C:\Users\ersid\Desktop\Sender\Sender\bin\Debug\Sender.pdb
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.csprojAssemblyReference.cache
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\MainWindow.g.cs
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\App.g.cs
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender_MarkupCompile.cache
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender_MarkupCompile.lref
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\MainWindow.baml
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.g.resources
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.Properties.Resources.resources
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.csproj.GenerateResource.cache
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.csproj.CoreCompileInputs.cache
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.exe
+C:\Users\ersid\Desktop\Sender\Sender\obj\Debug\Sender.pdb
