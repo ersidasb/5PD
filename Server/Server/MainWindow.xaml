@@ -1,0 +1,28 @@
+﻿<Window x:Class="Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server"
+        mc:Ignorable="d"
+        Title="Server" Height="259.6" Width="613.6">
+    <Grid>
+        <Button x:Name="btnStart" Content="Start Server" HorizontalAlignment="Left" Margin="226,195,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="306,195,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Public key: " VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="tblPublicKey" HorizontalAlignment="Left" TextAlignment="Left" Margin="79,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Border HorizontalAlignment="Left" Height="138" Margin="10,52,0,0" VerticalAlignment="Top" Width="291" BorderThickness="1" BorderBrush="Black">
+            <ScrollViewer>
+                <TextBlock x:Name="tblMessage" TextWrapping="Wrap"></TextBlock>
+            </ScrollViewer>
+        </Border>
+        <Border HorizontalAlignment="Left" Height="138" Margin="306,52,0,0" VerticalAlignment="Top" Width="291" BorderThickness="1" BorderBrush="Black">
+            <ScrollViewer>
+                <TextBlock x:Name="tblSignature" TextWrapping="Wrap"></TextBlock>
+            </ScrollViewer>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="306,31,0,0" TextWrapping="Wrap" Text="Signature" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
