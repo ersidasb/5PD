@@ -12,6 +12,9 @@ namespace Server
     class _Server
     {
         private static TcpListener listener = null;
+        private string message = "";
+        private List<int> keyAndSignature = new List<int>();
+        public static Delegate update;
 
         public _Server()
         {
@@ -39,11 +42,12 @@ namespace Server
 
                         byte[] messageBytes = new byte[messageLength];
                         stream.Read(messageBytes, 0, messageLength);
-                        string fileName = Encoding.ASCII.GetString(messageBytes, 0, messageLength);
+                        message = Encoding.ASCII.GetString(messageBytes, 0, messageLength);
 
                         byte[] keyAndSignatureBytes = new byte[bufferLength - messageLength - 8];
                         stream.Read(keyAndSignatureBytes, 0 , bufferLength - messageLength - 8);
-                        List<int> originalList = Enumerable.Range(0, keyAndSignatureBytes.Length / 4).Select(i => BitConverter.ToInt32(keyAndSignatureBytes, i * 4)).ToList();
+                        keyAndSignature = Enumerable.Range(0, keyAndSignatureBytes.Length / 4).Select(i => BitConverter.ToInt32(keyAndSignatureBytes, i * 4)).ToList();
+                        update.DynamicInvoke(message, keyAndSignature);
                     }
                 }
             }
