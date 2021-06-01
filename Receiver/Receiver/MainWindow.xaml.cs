@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,19 +21,59 @@ namespace Receiver
     /// </summary>
     public partial class MainWindow : Window
     {
+        _Receiver receiver = new _Receiver();
+        delegate void updateDelegate(string message, List<int> keyAndSignature);
+        updateDelegate update;
+        string message;
+        List<int> keyAndSignature = new List<int>();
+
         public MainWindow()
         {
             InitializeComponent();
+            btnValidate.IsEnabled = false;
+            update = updateUI;
+            _Receiver.update = update;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-
+            Thread serverThread = new Thread(() =>
+            {
+                receiver.Start();
+            });
+            serverThread.IsBackground = true;
+            serverThread.Start();
+            btnStart.IsEnabled = false;
         }
 
         private void btnValidate_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void updateUI(string message, List<int> keyAndSignature)
+        {
+            Dispatcher.Invoke((Action)delegate
+            {
+                tblMessage.Text = "";
+                tblPublicKey.Text = "";
+                tblSignature.Text = "";
+
+                tblMessage.Text = message;
+                tblPublicKey.Text = $"{keyAndSignature[0]}, {keyAndSignature[1]}";
+                int index = 0;
+                foreach (int i in keyAndSignature)
+                {
+                    if (index > 1 && index != keyAndSignature.Count - 1)
+                        tblSignature.Inlines.Add(i.ToString() + ", ");
+                    if (index == keyAndSignature.Count - 1)
+                        tblSignature.Inlines.Add(i.ToString());
+                    index++;
+                }
+
+                this.message = message;
+                this.keyAndSignature = keyAndSignature;
+                btnValidate.IsEnabled = true;
+            });
         }
     }
 }
