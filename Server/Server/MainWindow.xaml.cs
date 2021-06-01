@@ -33,7 +33,8 @@ namespace Server
             update = updateUI;
             _Server.update = update;
             btnSend.IsEnabled = false;
-            btnRandomize.IsEnabled = false;
+            btnRandomizeAll.IsEnabled = false;
+            btnRandomizeOne.IsEnabled = false;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -86,6 +87,13 @@ namespace Server
             updateUI(message, keyAndSignature);
         }
 
+        private void btnRandomizeOne_Click(object sender, RoutedEventArgs e)
+        {
+            int index = random.Next(2, keyAndSignature.Count - 1);
+            keyAndSignature[index] = random.Next(1, 10000);
+            updateUI(message, keyAndSignature);
+        }
+
         private void updateUI(string message, List<int> keyAndSignature)
         {
             Dispatcher.Invoke((Action)delegate
@@ -109,7 +117,8 @@ namespace Server
                 this.message = message;
                 this.keyAndSignature = keyAndSignature;
                 btnSend.IsEnabled = true;
-                btnRandomize.IsEnabled = true;
+                btnRandomizeAll.IsEnabled = true;
+                btnRandomizeOne.IsEnabled = true;
             });
         }
     }

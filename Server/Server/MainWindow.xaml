@@ -23,7 +23,8 @@
             </ScrollViewer>
         </Border>
         <TextBlock HorizontalAlignment="Left" Margin="306,31,0,0" TextWrapping="Wrap" Text="Signature" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btnRandomize" Content="Randomize" HorizontalAlignment="Left" Margin="522,28,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.643,0.448" Click="btnRandomize_Click"/>
+        <Button x:Name="btnRandomizeAll" Content="Randomize all" HorizontalAlignment="Left" Margin="504,29,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="2.445,0.49" Click="btnRandomize_Click"/>
+        <Button x:Name="btnRandomizeOne" Content="Randomize one" HorizontalAlignment="Left" Margin="405,28,0,0" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.5,0.5" Click="btnRandomizeOne_Click"/>
 
     </Grid>
 </Window>
