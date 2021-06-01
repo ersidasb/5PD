@@ -26,12 +26,14 @@ namespace Server
         updateDelegate update;
         string message;
         List<int> keyAndSignature = new List<int>();
+        Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
             update = updateUI;
             _Server.update = update;
             btnSend.IsEnabled = false;
+            btnRandomize.IsEnabled = false;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,34 @@ namespace Server
             }
         }
 
+        private void btnRandomize_Click(object sender, RoutedEventArgs e)
+        {
+            int lowest = 0;
+            int highest = 0;
+            int index = 0;
+            foreach(int i in keyAndSignature)
+            {
+                if(index>1)
+                {
+                    if (index == 2)
+                        lowest = i;
+                    else if (i < lowest)
+                        lowest = i;
+                    if (i > highest)
+                        highest = i;
+                }
+                index++;
+            }
+            for(int i=0; i<keyAndSignature.Count; i++)
+            {
+                if(i>1)
+                {
+                    keyAndSignature[i] = random.Next(lowest, highest);
+                }
+            }
+            updateUI(message, keyAndSignature);
+        }
+
         private void updateUI(string message, List<int> keyAndSignature)
         {
             Dispatcher.Invoke((Action)delegate
@@ -69,9 +99,9 @@ namespace Server
                 int index = 0;
                 foreach (int i in keyAndSignature)
                 {
-                    if(index>1)
+                    if (index > 1 && index != keyAndSignature.Count - 1)
                         tblSignature.Inlines.Add(i.ToString() + ", ");
-                    if(index == keyAndSignature.Count - 1)
+                    if (index == keyAndSignature.Count - 1)
                         tblSignature.Inlines.Add(i.ToString());
                     index++;
                 }
@@ -79,6 +109,7 @@ namespace Server
                 this.message = message;
                 this.keyAndSignature = keyAndSignature;
                 btnSend.IsEnabled = true;
+                btnRandomize.IsEnabled = true;
             });
         }
     }
