@@ -65,7 +65,7 @@ namespace Receiver
             {
                 tblMessage.Text = "";
                 tblPublicKey.Text = "";
-                tblSignature.Text = "";
+                tbxSignature.Document.Blocks.Clear();
 
                 tblMessage.Text = message;
                 tblPublicKey.Text = $"{keyAndSignature[0]}, {keyAndSignature[1]}";
@@ -73,9 +73,9 @@ namespace Receiver
                 foreach (int i in keyAndSignature)
                 {
                     if (index > 1 && index != keyAndSignature.Count - 1)
-                        tblSignature.Inlines.Add(i.ToString() + ", ");
+                        tbxSignature.AppendText(i.ToString() + ", ");
                     if (index == keyAndSignature.Count - 1)
-                        tblSignature.Inlines.Add(i.ToString());
+                        tbxSignature.AppendText(i.ToString());
                     index++;
                 }
 
@@ -92,6 +92,7 @@ namespace Receiver
             bool valid = true;
             if (message.Length != keyAndSignature.Count - 2)
                 return false;
+            tbxSignature.Document.Blocks.Clear();
             for(int i=0; i<keyAndSignature.Count; i++)
             {
                 if (i == 0)
@@ -102,13 +103,26 @@ namespace Receiver
                 {
                     int charValue = (int)message[i - 2];
                     int signatureCharValue = (Int32)BigInteger.ModPow(keyAndSignature[i], e, n);
+
+                    TextRange rangeOfText2 = new TextRange(tbxSignature.Document.ContentEnd, tbxSignature.Document.ContentEnd);
+
+                    if(i != keyAndSignature.Count -1)
+                        rangeOfText2.Text = $"{keyAndSignature[i]}, ";
+                    else
+                        rangeOfText2.Text = $"{keyAndSignature[i]}";
+
                     if (charValue != signatureCharValue)
                     {
-                        return false;
+                        valid = false;
+                        rangeOfText2.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Red);
+                    }
+                    else
+                    {
+                        rangeOfText2.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Green);
                     }
                 }
             }
-            return true;
+            return valid;
         }
     }
 }

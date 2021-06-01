@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Receiver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="260" Width="614">
+        Title="Receiver" Height="260" Width="614">
     <Grid>
         <Button x:Name="btnStart" Content="Start Receiver" HorizontalAlignment="Left" Margin="226,195,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Public key: " VerticalAlignment="Top" FontWeight="Bold"/>
@@ -18,11 +18,17 @@
         </Border>
         <Border HorizontalAlignment="Left" Height="138" Margin="306,52,0,0" VerticalAlignment="Top" Width="291" BorderThickness="1" BorderBrush="Black">
             <ScrollViewer>
-                <TextBlock x:Name="tblSignature" TextWrapping="Wrap"></TextBlock>
+                <RichTextBox x:Name="tbxSignature" IsReadOnly="true" IsHitTestVisible="False" HorizontalAlignment="Left">
+                    <FlowDocument>
+                        <Paragraph>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
             </ScrollViewer>
         </Border>
         <TextBlock HorizontalAlignment="Left" Margin="306,31,0,0" TextWrapping="Wrap" Text="Signature" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button x:Name="btnValidate" Content="Validate" HorizontalAlignment="Left" Margin="306,195,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.643,0.448" Click="btnValidate_Click" />
+
 
     </Grid>
 </Window>
