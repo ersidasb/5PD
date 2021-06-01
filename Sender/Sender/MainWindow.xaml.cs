@@ -28,7 +28,7 @@ namespace Sender
                 _Sender.Send(text, signature.getMessageSignature(text));
                 tbxMessage.Text = "";
             }
-            catch(Exception exc)
+            catch
             {
             }
         }

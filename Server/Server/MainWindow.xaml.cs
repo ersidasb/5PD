@@ -24,11 +24,14 @@ namespace Server
         _Server server = new _Server();
         delegate void updateDelegate(string message, List<int> keyAndSignature);
         updateDelegate update;
+        string message;
+        List<int> keyAndSignature = new List<int>();
         public MainWindow()
         {
             InitializeComponent();
             update = updateUI;
             _Server.update = update;
+            btnSend.IsEnabled = false;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -39,11 +42,18 @@ namespace Server
             });
             serverThread.IsBackground = true;
             serverThread.Start();
+            btnStart.IsEnabled = false;
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                _Server.Send(message, keyAndSignature);
+            }
+            catch
+            {
+            }
         }
 
         private void updateUI(string message, List<int> keyAndSignature)
@@ -61,8 +71,14 @@ namespace Server
                 {
                     if(index>1)
                         tblSignature.Inlines.Add(i.ToString() + ", ");
+                    if(index == keyAndSignature.Count - 1)
+                        tblSignature.Inlines.Add(i.ToString());
                     index++;
                 }
+
+                this.message = message;
+                this.keyAndSignature = keyAndSignature;
+                btnSend.IsEnabled = true;
             });
         }
     }
