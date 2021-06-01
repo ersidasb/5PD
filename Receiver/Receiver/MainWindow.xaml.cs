@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -48,8 +49,16 @@ namespace Receiver
 
         private void btnValidate_Click(object sender, RoutedEventArgs e)
         {
-
+            if(validateSignature())
+            {
+                MessageBox.Show("Signature is valid.");
+            }
+            else
+            {
+                MessageBox.Show("Signature is invalid.");
+            }
         }
+
         private void updateUI(string message, List<int> keyAndSignature)
         {
             Dispatcher.Invoke((Action)delegate
@@ -74,6 +83,32 @@ namespace Receiver
                 this.keyAndSignature = keyAndSignature;
                 btnValidate.IsEnabled = true;
             });
+        }
+
+        private bool validateSignature()
+        {
+            int n = 0;
+            int e = 0;
+            bool valid = true;
+            if (message.Length != keyAndSignature.Count - 2)
+                return false;
+            for(int i=0; i<keyAndSignature.Count; i++)
+            {
+                if (i == 0)
+                    n = keyAndSignature[i];
+                if (i == 1)
+                    e = keyAndSignature[i];
+                if(i>1)
+                {
+                    int charValue = (int)message[i - 2];
+                    int signatureCharValue = (Int32)BigInteger.ModPow(keyAndSignature[i], e, n);
+                    if (charValue != signatureCharValue)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
