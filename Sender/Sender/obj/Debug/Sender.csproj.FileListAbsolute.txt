@@ -20,3 +20,11 @@ C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Se
 C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender_MarkupCompile.lref
 C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.exe
 C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.pdb
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\bin\Debug\Sender.exe.config
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\bin\Debug\Sender.exe
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\bin\Debug\Sender.pdb
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\MainWindow.baml
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.g.resources
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.Properties.Resources.resources
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.csproj.GenerateResource.cache
+C:\Users\ersid\Desktop\Kolegijai\2 kursas\2 semestras\saugumas\5PD\5PD\Sender\Sender\obj\Debug\Sender.csproj.CoreCompileInputs.cache

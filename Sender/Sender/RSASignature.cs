@@ -12,6 +12,7 @@ namespace Sender
         private int q;
         private int p;
         List<int> primes = new List<int>();
+        Random random = new Random();
 
         public int generatePrime()
         {
@@ -30,7 +31,6 @@ namespace Sender
                         primes.Add(i);
                 }
             }
-            Random random = new Random();
             int index = random.Next(0, primes.Count - 1);
 
             return primes[index];
@@ -41,6 +41,8 @@ namespace Sender
             List<int> keyAndSignature = new List<int>();
             p = generatePrime();
             q = generatePrime();
+            while (q == p)
+                q = generatePrime();
 
             int n = p * q;
             keyAndSignature.Add(n);
@@ -78,6 +80,7 @@ namespace Sender
             }
             return a | b;
         }
+
         private int IEA(int e, int N)
         {
             int r0, r1, s0, s1, t0, t1, ri, qi, min;

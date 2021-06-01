@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Sender
 {
@@ -20,19 +13,32 @@ namespace Sender
     /// </summary>
     public partial class MainWindow : Window
     {
+        RSASignature signature = new RSASignature();
         public MainWindow()
         {
             InitializeComponent();
+            btnSend.IsEnabled = false;
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            RSASignature signature = new RSASignature();
-            foreach(int i in signature.getMessageSignature(tbxMessage.Text))
+            string text = tbxMessage.Text;
+            try
             {
-                Console.Write(i.ToString() + ", ");
+                _Sender.Send(text, signature.getMessageSignature(text));
+                tbxMessage.Text = "";
             }
-            tbxMessage.Text = "";
+            catch(Exception exc)
+            {
+            }
+        }
+
+        private void tbxMessage_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (tbxMessage.Text == "")
+                btnSend.IsEnabled = false;
+            else
+                btnSend.IsEnabled = true;
         }
     }
 }
